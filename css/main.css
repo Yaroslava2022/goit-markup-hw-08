@@ -1733,8 +1733,8 @@ img {
   background-color: var(--background-color);
   z-index: 999;
   overflow: hidden;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform: translateX(150%);
+          transform: translateX(150%);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   transition: -webkit-transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
