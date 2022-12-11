@@ -1,5 +1,7 @@
 .advantages {
 
+    margin-bottom: -30px;
+
     @extend %list;
 
     display: block;
@@ -8,13 +10,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-top: -30px;
+
 
     }
 
     @media screen and (min-width: 1200px) {
         display: flex;
         flex-wrap: nowrap;
+        margin-bottom: 0;
 
     }
 
@@ -22,14 +25,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 30px auto;
+        margin: 0 auto 30px;
 
         height: 120px;
         background-color: #F5F4FA;
 
+        @media screen and (min-width: 320px) and (max-width: 479px) {
+            width: 100%;
+
+        }
+
         @media screen and (min-width: 768px) {
             margin-right: 0;
             margin-left: 0;
+
         }
 
         @media screen and (min-width: 1200px) {
@@ -43,6 +52,12 @@
 
 
     &__box {
+        margin-bottom: 30px;
+
+        @media screen and (min-width: 320px) and (max-width: 479px) {
+            width: 100%;
+        }
+
         width: 450px;
 
         @media screen and (min-width: 768px) {
@@ -55,9 +70,9 @@
         @media screen and (min-width: 1200px) {
 
             width: 270px;
-            height: 120px;
+            height: 248px;
             gap: var(--card-set-gap);
-            margin-bottom: 30px;
+            margin-bottom: 0;
         }
     }
 

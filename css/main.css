@@ -353,6 +353,11 @@ img {
   margin-right: auto;
   padding: 0 15px;
 }
+@media screen and (min-width: 320px) {
+  .container {
+    width: 100%;
+  }
+}
 @media screen and (min-width: 480px) {
   .container {
     width: 480px;
@@ -525,8 +530,6 @@ img {
 .hero {
   padding-top: 118px;
   padding-bottom: 118px;
-  max-width: 480px;
-  height: 400px;
   margin-left: auto;
   margin-right: auto;
   background-color: var(--logo-header-color);
@@ -540,18 +543,7 @@ img {
   .hero {
     padding-top: 200px;
     padding-bottom: 200px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .hero {
-    max-width: 768px;
-    height: 400px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .hero {
     max-width: 1600px;
-    height: 600px;
   }
 }
 @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
@@ -560,13 +552,13 @@ img {
     background-image: linear-gradient(to right, var(--hero-color), var(--hero-color)), url("../images/studio/hero/bg_sm@2x.jpg");
   }
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 320px) {
   .hero {
     background-image: -webkit-gradient(linear, left top, right top, from(var(--hero-color)), to(var(--hero-color))), url("../images/studio/hero/bg_md@1x.jpg");
     background-image: linear-gradient(to right, var(--hero-color), var(--hero-color)), url("../images/studio/hero/bg_md@1x.jpg");
   }
 }
-@media screen and (min-width: 481px) and (min-device-pixel-ratio: 2), screen and (min-width: 481px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 481px) and (min-resolution: 192dpi), screen and (min-width: 481px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 320px) and (min-device-pixel-ratio: 2), screen and (min-width: 320px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 320px) and (min-resolution: 192dpi), screen and (min-width: 320px) and (min-resolution: 2dppx) {
   .hero {
     background-image: -webkit-gradient(linear, left top, right top, from(var(--hero-color)), to(var(--hero-color))), url("../images/studio/hero/bg_md@2x.jpg");
     background-image: linear-gradient(to right, var(--hero-color), var(--hero-color)), url("../images/studio/hero/bg_md@2x.jpg");
@@ -595,14 +587,14 @@ img {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--secondary-title-color);
-  width: 360px;
+  max-width: 360px;
 }
 @media screen and (min-width: 1200px) {
   .hero__title {
     font-weight: 900;
     font-size: 44px;
     line-height: 1.3636363636;
-    width: 696px;
+    max-width: 696px;
   }
 }
 
@@ -628,6 +620,7 @@ img {
 }
 
 .advantages {
+  margin-bottom: -30px;
   display: block;
 }
 @media screen and (min-width: 768px) {
@@ -640,7 +633,6 @@ img {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin-top: -30px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -650,6 +642,7 @@ img {
     display: flex;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+    margin-bottom: 0;
   }
 }
 .advantages__item {
@@ -662,9 +655,14 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 30px auto;
+  margin: 0 auto 30px;
   height: 120px;
   background-color: #F5F4FA;
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .advantages__item {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 768px) {
   .advantages__item {
@@ -681,7 +679,13 @@ img {
   }
 }
 .advantages__box {
+  margin-bottom: 30px;
   width: 450px;
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .advantages__box {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 768px) {
   .advantages__box {
@@ -693,9 +697,9 @@ img {
 @media screen and (min-width: 1200px) {
   .advantages__box {
     width: 270px;
-    height: 120px;
+    height: 248px;
     gap: var(--card-set-gap);
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
 }
 .advantages__icon {
@@ -1206,9 +1210,11 @@ img {
   z-index: 10;
   width: 100%;
   height: 100%;
+  opacity: 1;
   background-color: rgba(0, 0, 0, 0.2);
   -webkit-transition: opacity 300ms ease, visibility 300ms ease;
   transition: opacity 300ms ease, visibility 300ms ease;
+  overflow-y: scroll;
 }
 
 .backdrop.is-hidden {
@@ -1221,8 +1227,6 @@ img {
   position: absolute;
   top: 93px;
   left: 50%;
-  max-width: 450px;
-  max-height: 609px;
   -webkit-transform: translateX(-50%) translateY(-45px);
           transform: translateX(-50%) translateY(-45px);
   margin: auto;
@@ -1236,12 +1240,20 @@ img {
   transition: transform var(--animation), opacity var(--animation);
   transition: transform var(--animation), opacity var(--animation), -webkit-transform var(--animation);
 }
+@media screen and (max-width: 767px) {
+  .modal {
+    width: calc(100% - 30px);
+    height: calc(100% - 187px);
+  }
+}
 @media screen and (min-width: 768px) {
   .modal {
     top: 50%;
     left: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
+    width: 450px;
+    height: 609px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -1396,7 +1408,6 @@ img {
 
 .modal-form__agreement {
   text-align: center;
-  margin-bottom: 30px;
   color: rgb(117, 117, 117);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1419,7 +1430,7 @@ img {
 
 .modal-form__btn {
   display: block;
-  margin: 0 auto;
+  margin: 30px auto 0;
   min-width: 200px;
   border-radius: 4px;
   border: none;
